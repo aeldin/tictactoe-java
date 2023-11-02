@@ -10,19 +10,28 @@ public class HelloController {
 
     public Button button1;
 
-    @FXML
-    private Label welcomeText;
+    public Label welcomeText;
+    public Label anotherLabel;
+
+    private Model model = new Model();
+
+    public Model getModel(){
+        return model;
+
+    }
+    public void initialize(){
+        welcomeText.textProperty().bind(model.messageProperty());
+
+
+    }
 
     @FXML
     protected void onHelloButtonAction() {
-
-        welcomeText.setText("Welcome to JavaFX Application!");
+        model.setMessage("Welcome to JavaFX Application!");
     }
 
 
     public void onLabelClicked(MouseEvent mouseEvent) {
-        welcomeText.setText("");
-        button1.setText("Label was here");
 
     }
 
