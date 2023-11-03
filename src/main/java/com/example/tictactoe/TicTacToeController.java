@@ -20,8 +20,13 @@ public class TicTacToeController {
     }
 
 
+    public void image1Clicked(MouseEvent mouseEvent) {
+    }
 
+    public void image2Clicked(MouseEvent mouseEvent) {
+    }
 
+    public void image3Clicked(MouseEvent mouseEvent) {
 
-
+    }
 }
