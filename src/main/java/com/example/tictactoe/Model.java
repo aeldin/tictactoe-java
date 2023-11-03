@@ -17,6 +17,8 @@ public class Model {
     public void setMessage(String message) {
         this.message.set(message);
     }
+
+
 }
 
 
