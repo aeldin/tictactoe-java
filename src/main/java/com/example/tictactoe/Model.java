@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 
 public class Model {
 
-   public Image imageX;
+    public Image imageX;
     public Image imageO;
     public Image imageBlank;
 
@@ -28,19 +28,21 @@ public class Model {
     private int yourScore;
 
 
-    public Model(){
-       imageX = new Image(getClass().getResource("images/X.png").toExternalForm());
-       imageO = new Image(getClass().getResource("images/O.png").toExternalForm());
-       imageBlank = new Image(getClass().getResource("images/Blank.png").toExternalForm());
-       first = new SimpleObjectProperty<>(imageBlank);
-       second = new SimpleObjectProperty<>(imageBlank);
-       third = new SimpleObjectProperty<>(imageBlank);
+
+    public Model() {
+        imageX = new Image(getClass().getResource("images/X.png").toExternalForm());
+        imageO = new Image(getClass().getResource("images/O.png").toExternalForm());
+        imageBlank = new Image(getClass().getResource("images/Blank.png").toExternalForm());
+        first = new SimpleObjectProperty<>(imageBlank);
+        second = new SimpleObjectProperty<>(imageBlank);
+        third = new SimpleObjectProperty<>(imageBlank);
         fourth = new SimpleObjectProperty<>(imageBlank);
         fifth = new SimpleObjectProperty<>(imageBlank);
         sixth = new SimpleObjectProperty<>(imageBlank);
         seventh = new SimpleObjectProperty<>(imageBlank);
         eighth = new SimpleObjectProperty<>(imageBlank);
         ninth = new SimpleObjectProperty<>(imageBlank);
+
 
 
     }
@@ -153,9 +155,7 @@ public class Model {
         this.ninth.set(ninth);
     }
 
-    public void changeImage() {
-        setFirst(imageX);
-    }
+
 
     public String getScore() {
         return score.get();

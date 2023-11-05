@@ -7,21 +7,22 @@
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tictactoe.TicTacToeController">
     <VBox alignment="BOTTOM_CENTER" spacing="20.0">
         <Label text="${controller.model.score}" />
+        <Label fx:id="activePlayer" visible="false" />
     </VBox>
     <HBox alignment="BOTTOM_CENTER" spacing="20.0">
-    <ImageView image="${controller.model.first}" onMouseClicked="#imageBlankClicked" />
-    <ImageView image="${controller.model.second}" onMouseClicked="#imageBlankClicked" />
-    <ImageView image="${controller.model.third}" onMouseClicked="#imageBlankClicked" />
+    <ImageView image="${controller.model.first}" onMouseClicked="#imageBlankClicked" id="topLeft"/>
+    <ImageView image="${controller.model.second}" onMouseClicked="#imageBlankClicked" id="topCenter"/>
+    <ImageView image="${controller.model.third}" onMouseClicked="#imageBlankClicked" id="topRight"/>
     </HBox>
     <HBox alignment="BOTTOM_CENTER" spacing="20.0">
-        <ImageView image="${controller.model.fourth}" onMouseClicked="#imageBlankClicked" />
-        <ImageView image="${controller.model.fifth}" onMouseClicked="#imageBlankClicked" />
-        <ImageView image="${controller.model.sixth}" onMouseClicked="#imageBlankClicked" />
+        <ImageView image="${controller.model.fourth}" onMouseClicked="#imageBlankClicked" id="midLeft"/>
+        <ImageView image="${controller.model.fifth}" onMouseClicked="#imageBlankClicked" id="midCenter"/>
+        <ImageView image="${controller.model.sixth}" onMouseClicked="#imageBlankClicked" id="midRight"/>
     </HBox>
     <HBox alignment="BOTTOM_CENTER" spacing="20.0">
-        <ImageView image="${controller.model.seventh}" onMouseClicked="#imageBlankClicked" />
-        <ImageView image="${controller.model.eighth}" onMouseClicked="#imageBlankClicked" />
-        <ImageView image="${controller.model.ninth}" onMouseClicked="#imageBlankClicked" />
+        <ImageView image="${controller.model.seventh}" onMouseClicked="#imageBlankClicked" id="bottomLeft"/>
+        <ImageView image="${controller.model.eighth}" onMouseClicked="#imageBlankClicked" id="bottomCenter"/>
+        <ImageView image="${controller.model.ninth}" onMouseClicked="#imageBlankClicked" id="bottomRight"/>
     </HBox>
 
 </VBox>
