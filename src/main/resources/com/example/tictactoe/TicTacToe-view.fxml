@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<?import javafx.scene.image.ImageView?>
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tictactoe.TicTacToeController">
-    <ImageView onMouseClicked="#image1Clicked"/>
-    <ImageView onMouseClicked="#image2Clicked"/>
-    <ImageView onMouseClicked="#image3Clicked"/>
+    <VBox alignment="BOTTOM_CENTER" spacing="20.0">
+        <Label text="${controller.model.score}" />
+    </VBox>
+    <HBox alignment="BOTTOM_CENTER" spacing="20.0">
+    <ImageView image="${controller.model.first}" onMouseClicked="#imageBlankClicked" />
+    <ImageView image="${controller.model.second}" onMouseClicked="#imageBlankClicked" />
+    <ImageView image="${controller.model.third}" onMouseClicked="#imageBlankClicked" />
+    </HBox>
+    <HBox alignment="BOTTOM_CENTER" spacing="20.0">
+        <ImageView image="${controller.model.fourth}" onMouseClicked="#imageBlankClicked" />
+        <ImageView image="${controller.model.fifth}" onMouseClicked="#imageBlankClicked" />
+        <ImageView image="${controller.model.sixth}" onMouseClicked="#imageBlankClicked" />
+    </HBox>
+    <HBox alignment="BOTTOM_CENTER" spacing="20.0">
+        <ImageView image="${controller.model.seventh}" onMouseClicked="#imageBlankClicked" />
+        <ImageView image="${controller.model.eighth}" onMouseClicked="#imageBlankClicked" />
+        <ImageView image="${controller.model.ninth}" onMouseClicked="#imageBlankClicked" />
+    </HBox>
+
 </VBox>
