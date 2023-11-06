@@ -6,6 +6,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 
+import java.util.ArrayList;
+
 public class Model {
 
     public Image imageX;
@@ -24,10 +26,11 @@ public class Model {
     private ObjectProperty<Image> ninth;
 
 
-
     private StringProperty playerScore = new SimpleStringProperty("X = 0 poäng");
 
     private StringProperty computerScore = new SimpleStringProperty("O = 0 poäng");
+
+    Image[][] board;
 
 
 
@@ -46,6 +49,11 @@ public class Model {
         seventh = new SimpleObjectProperty<>(imageBlank);
         eighth = new SimpleObjectProperty<>(imageBlank);
         ninth = new SimpleObjectProperty<>(imageBlank);
+        this.board = new Image[][] {
+                {imageBlank, imageBlank, imageBlank},
+                {imageBlank, imageBlank, imageBlank},
+                {imageBlank, imageBlank, imageBlank}
+        };
 
 
 
@@ -183,6 +191,16 @@ public class Model {
 
     public void setComputerScore(String score) {
         this.computerScore.set(score);
+    }
+
+    public Image[][] getBoard() {
+        return board;
+    }
+
+    public void setBoard(Image[][] board) {
+        this.board = board;
+
+
     }
 }
 
