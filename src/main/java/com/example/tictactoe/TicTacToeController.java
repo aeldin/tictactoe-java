@@ -146,6 +146,7 @@ public class TicTacToeController {
             }
             displayWinMessage(model.getBoard()[0][2]);
         }
+        checkForDraw();
 
     }
     private void displayWinMessage(Image winnerImage) {
@@ -157,6 +158,27 @@ public class TicTacToeController {
         }
         // You can also disable further moves or take other actions here.
     }
+
+    public void checkForDraw() {
+        Image[][] board = model.getBoard();
+        boolean isDraw = true;
+
+        // Check if all cells are filled
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == model.imageBlank) {
+                    isDraw = false;
+                    break;
+                }
+            }
+        }
+
+        if (isDraw) {
+            activePlayer.setText("It's a draw!");
+            // You can also take other actions here, such as disabling further moves.
+        }
+    }
+
 
 }
 
