@@ -24,8 +24,12 @@ public class Model {
     private ObjectProperty<Image> ninth;
 
 
-    private StringProperty score = new SimpleStringProperty("0 poäng");
-    private int yourScore;
+
+    private StringProperty playerScore = new SimpleStringProperty("X = 0 poäng");
+
+    private StringProperty computerScore = new SimpleStringProperty("O = 0 poäng");
+
+
 
 
 
@@ -157,16 +161,28 @@ public class Model {
 
 
 
-    public String getScore() {
-        return score.get();
+    public String getPlayerScore() {
+        return playerScore.get();
     }
 
-    public StringProperty scoreProperty() {
-        return score;
+    public StringProperty playerScoreProperty() {
+        return playerScore;
     }
 
-    public void setScore(String score) {
-        this.score.set(score);
+    public void setPlayerScore(String score) {
+        this.playerScore.set(score);
+    }
+
+    public String getComputerScore() {
+        return computerScore.get();
+    }
+
+    public StringProperty computerScoreProperty() {
+        return computerScore;
+    }
+
+    public void setComputerScore(String score) {
+        this.computerScore.set(score);
     }
 }
 

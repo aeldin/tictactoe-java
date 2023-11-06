@@ -6,6 +6,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class TicTacToeController {
 
     @FXML
@@ -15,12 +18,14 @@ public class TicTacToeController {
     private static final int PLAYER_ONE = 0;
     private static final int PLAYER_TWO = 1;
 
+
     public Model getModel() {
         return model;
     }
 
     public void initialize() {
         activePlayer.setText(String.valueOf(PLAYER_ONE));
+
     }
 
     public void imageBlankClicked(MouseEvent mouseEvent) {
@@ -44,7 +49,9 @@ public class TicTacToeController {
             }
             activePlayer.setText(String.valueOf(currentPlayer == PLAYER_ONE ? PLAYER_TWO : PLAYER_ONE));
         }
-
     }
 
+
+
 }
+

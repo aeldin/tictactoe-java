@@ -6,7 +6,8 @@
 
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tictactoe.TicTacToeController">
     <VBox alignment="BOTTOM_CENTER" spacing="20.0">
-        <Label text="${controller.model.score}" />
+        <Label text="${controller.model.playerScore}" />
+        <Label text="${controller.model.computerScore}" />
         <Label fx:id="activePlayer" visible="false" />
     </VBox>
     <HBox alignment="BOTTOM_CENTER" spacing="20.0">
