@@ -30,6 +30,7 @@ public class Model {
 
     private StringProperty computerScore = new SimpleStringProperty("O = 0 poäng");
 
+
     Image[][] board;
 
 
@@ -201,6 +202,11 @@ public class Model {
         this.board = board;
 
 
+    }
+
+
+    public Image getImageBlank() {
+        return imageBlank;
     }
 }
 

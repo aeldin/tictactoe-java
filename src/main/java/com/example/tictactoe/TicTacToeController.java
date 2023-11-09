@@ -1,6 +1,7 @@
 package com.example.tictactoe;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -8,15 +9,25 @@ import javafx.scene.input.MouseEvent;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class TicTacToeController {
 
     @FXML
     public Label activePlayer;
+    @FXML
+    public Button nextGameButton;
+    @FXML
+    public Button resetButton;
+
+
+
     private Model model = new Model();
 
     private static final int PLAYER_ONE = 0;
     private static final int PLAYER_TWO = 1;
+
+    private int currentPlayer;
 
 
     public Model getModel() {
@@ -24,7 +35,7 @@ public class TicTacToeController {
     }
 
     public void initialize() {
-        activePlayer.setText(String.valueOf(PLAYER_ONE));
+        activePlayer.setText(String.valueOf(currentPlayer));
 
     }
 
@@ -150,13 +161,12 @@ public class TicTacToeController {
 
     }
     private void displayWinMessage(Image winnerImage) {
-        // Display a message indicating the winner (X or O)
         if (winnerImage == model.imageX) {
             activePlayer.setText("Player X wins!");
         } else {
             activePlayer.setText("Player O wins!");
         }
-        // You can also disable further moves or take other actions here.
+
     }
 
     public void checkForDraw() {
@@ -175,9 +185,49 @@ public class TicTacToeController {
 
         if (isDraw) {
             activePlayer.setText("It's a draw!");
-            // You can also take other actions here, such as disabling further moves.
+
         }
     }
+
+    @FXML
+    public void resetButtonClicked() {
+        // Reset scores
+        model.setPlayerScore("X = 0 poäng");
+        model.setComputerScore("O = 0 poäng");
+
+        clearBoardState();
+
+        currentPlayer = new Random().nextInt(2) == 0 ? PLAYER_ONE : PLAYER_TWO;
+        activePlayer.setText(String.valueOf(currentPlayer));
+    }
+
+    @FXML
+    public void nextButtonClicked(){
+        clearBoardState();
+        currentPlayer = (currentPlayer == PLAYER_ONE) ? PLAYER_TWO : PLAYER_ONE;
+        activePlayer.setText(String.valueOf(currentPlayer));
+    }
+
+    private void clearBoardState() {
+        model.setFirst(model.getImageBlank());
+        model.setSecond(model.getImageBlank());
+        model.setThird(model.getImageBlank());
+        model.setFourth(model.getImageBlank());
+        model.setFifth(model.getImageBlank());
+        model.setSixth(model.getImageBlank());
+        model.setSeventh(model.getImageBlank());
+        model.setEighth(model.getImageBlank());
+        model.setNinth(model.getImageBlank());
+
+        // Reset the board array
+        model.setBoard(new Image[][]{
+                {model.getImageBlank(), model.getImageBlank(), model.getImageBlank()},
+                {model.getImageBlank(), model.getImageBlank(), model.getImageBlank()},
+                {model.getImageBlank(), model.getImageBlank(), model.getImageBlank()}
+        });
+    }
+
+
 
 
 }
