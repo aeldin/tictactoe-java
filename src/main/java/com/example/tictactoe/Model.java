@@ -6,8 +6,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 
-import java.util.ArrayList;
-
 public class Model {
 
     public Image imageX;
@@ -26,12 +24,15 @@ public class Model {
     private ObjectProperty<Image> ninth;
 
 
-    private StringProperty playerScore = new SimpleStringProperty("X = 0 poäng");
+    private StringProperty playerScoreBoard = new SimpleStringProperty("X = 0 poäng");
 
-    private StringProperty computerScore = new SimpleStringProperty("O = 0 poäng");
+    private StringProperty computerScoreBoard = new SimpleStringProperty("O = 0 poäng");
+
+    private int playerScore;
+    private int computerScore;
 
 
-    Image[][] board;
+    public Image[][] board;
 
 
 
@@ -50,10 +51,12 @@ public class Model {
         seventh = new SimpleObjectProperty<>(imageBlank);
         eighth = new SimpleObjectProperty<>(imageBlank);
         ninth = new SimpleObjectProperty<>(imageBlank);
+        this.playerScore = 0;
+        this.computerScore = 0;
         this.board = new Image[][] {
-                {imageBlank, imageBlank, imageBlank},
-                {imageBlank, imageBlank, imageBlank},
-                {imageBlank, imageBlank, imageBlank}
+                {first.get(), second.get(), third.get()},
+                {fourth.get(), fifth.get(), sixth.get()},
+                {seventh.get(), eighth.get(), ninth.get()}
         };
 
 
@@ -170,28 +173,28 @@ public class Model {
 
 
 
-    public String getPlayerScore() {
-        return playerScore.get();
+    public String getPlayerScoreBoard() {
+        return playerScoreBoard.get();
     }
 
-    public StringProperty playerScoreProperty() {
-        return playerScore;
+    public StringProperty playerScoreBoardProperty() {
+        return playerScoreBoard;
     }
 
-    public void setPlayerScore(String score) {
-        this.playerScore.set(score);
+    public void setPlayerScoreBoard(String score) {
+        this.playerScoreBoard.set(score);
     }
 
-    public String getComputerScore() {
-        return computerScore.get();
+    public String getComputerScoreBoard() {
+        return computerScoreBoard.get();
     }
 
-    public StringProperty computerScoreProperty() {
-        return computerScore;
+    public StringProperty computerScoreBoardProperty() {
+        return computerScoreBoard;
     }
 
-    public void setComputerScore(String score) {
-        this.computerScore.set(score);
+    public void setComputerScoreBoard(String score) {
+        this.computerScoreBoard.set(score);
     }
 
     public Image[][] getBoard() {
@@ -200,13 +203,26 @@ public class Model {
 
     public void setBoard(Image[][] board) {
         this.board = board;
-
-
     }
 
+    public void setPlayerScore(int playerScore) {
+        this.playerScore = playerScore;
+    }
+
+    public void setComputerScore(int computerScore) {
+        this.computerScore = computerScore;
+    }
 
     public Image getImageBlank() {
         return imageBlank;
+    }
+
+    public int incrementAndGetPlayerScore() {
+        return ++playerScore;
+    }
+
+    public int incrementAndGetComputerScore() {
+        return ++computerScore;
     }
 }
 
