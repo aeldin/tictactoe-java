@@ -28,6 +28,7 @@
                </stops>
             </LinearGradient>
          </textFill></Label>
+        <Label fx:id="outcomeLabel"/>
         <Label text="${controller.model.playerScore}">
          <font>
             <Font name="JetBrains Mono ExtraBold Italic" size="24.0" />

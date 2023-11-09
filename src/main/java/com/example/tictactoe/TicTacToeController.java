@@ -19,7 +19,8 @@ public class TicTacToeController {
     public Button nextGameButton;
     @FXML
     public Button resetButton;
-
+    @FXML
+    public Label outcomeLabel;
 
 
     private Model model = new Model();
@@ -91,81 +92,59 @@ public class TicTacToeController {
     }
 
     public void checkForWin() {
-
         // Check rows
         for (int i = 0; i < 3; i++) {
             if (model.getBoard()[i][0] == model.getBoard()[i][1] && model.getBoard()[i][1] == model.getBoard()[i][2] && model.getBoard()[i][0] != model.imageBlank) {
-                // Player X or O has won, update score and display a message
-                if (model.getBoard()[i][0] == model.imageX) {
-                    int playerScore = Integer.parseInt(model.getPlayerScore().split(" ")[2]);
-                    playerScore++;
-                    model.setPlayerScore("X = " + playerScore + " poäng");
-                } else {
-                    int computerScore = Integer.parseInt(model.getComputerScore().split(" ")[2]);
-                    computerScore++;
-                    model.setComputerScore("O = " + computerScore + " poäng");
-                }
-                displayWinMessage(model.getBoard()[i][0]);
+                String winner = (model.getBoard()[i][0] == model.imageX) ? "Player X" : "Player O";
+                updateScoreAndDisplayMessage(winner);
                 return;
             }
         }
 
-// Check columns
+        // Check columns
         for (int j = 0; j < 3; j++) {
             if (model.getBoard()[0][j] == model.getBoard()[1][j] && model.getBoard()[1][j] == model.getBoard()[2][j] && model.getBoard()[0][j] != model.imageBlank) {
-                // Player X or O has won, update score and display a message
-                if (model.getBoard()[0][j] == model.imageX) {
-                    int playerScore = Integer.parseInt(model.getPlayerScore().split(" ")[2]);
-                    playerScore++;
-                    model.setPlayerScore("X = " + playerScore + " poäng");
-                } else {
-                    int computerScore = Integer.parseInt(model.getComputerScore().split(" ")[2]);
-                    computerScore++;
-                    model.setComputerScore("O = " + computerScore + " poäng");
-                }
-                displayWinMessage(model.getBoard()[0][j]);
+                String winner = (model.getBoard()[0][j] == model.imageX) ? "Player X" : "Player O";
+                updateScoreAndDisplayMessage(winner);
                 return;
             }
         }
 
-// Check diagonals
+        // Check diagonals
         if (model.getBoard()[0][0] == model.getBoard()[1][1] && model.getBoard()[1][1] == model.getBoard()[2][2] && model.getBoard()[0][0] != model.imageBlank) {
-            // Player X or O has won, update score and display a message
-            if (model.getBoard()[0][0] == model.imageX) {
-                int playerScore = Integer.parseInt(model.getPlayerScore().split(" ")[2]);
-                playerScore++;
-                model.setPlayerScore("X = " + playerScore + " poäng");
-            } else {
-                int computerScore = Integer.parseInt(model.getComputerScore().split(" ")[2]);
-                computerScore++;
-                model.setComputerScore("O = " + computerScore + " poäng");
-            }
-            displayWinMessage(model.getBoard()[0][0]);
+            String winner = (model.getBoard()[0][0] == model.imageX) ? "Player X" : "Player O";
+            updateScoreAndDisplayMessage(winner);
             return;
         }
 
         if (model.getBoard()[0][2] == model.getBoard()[1][1] && model.getBoard()[1][1] == model.getBoard()[2][0] && model.getBoard()[0][2] != model.imageBlank) {
-            // Player X or O has won, update score and display a message
-            if (model.getBoard()[0][2] == model.imageX) {
-                int playerScore = Integer.parseInt(model.getPlayerScore().split(" ")[2]);
-                playerScore++;
-                model.setPlayerScore("X = " + playerScore + " poäng");
-            } else {
-                int computerScore = Integer.parseInt(model.getComputerScore().split(" ")[2]);
-                computerScore++;
-                model.setComputerScore("O = " + computerScore + " poäng");
-            }
-            displayWinMessage(model.getBoard()[0][2]);
+            String winner = (model.getBoard()[0][2] == model.imageX) ? "Player X" : "Player O";
+            updateScoreAndDisplayMessage(winner);
         }
+
         checkForDraw();
 
     }
-    private void displayWinMessage(Image winnerImage) {
-        if (winnerImage == model.imageX) {
-            activePlayer.setText("Player X wins!");
+
+    private void updateScoreAndDisplayMessage(String winner) {
+        // Update the score based on the winner
+        if (winner.equals("Player X")) {
+            int playerScore = Integer.parseInt(model.getPlayerScore().split(" ")[2]);
+            playerScore++;
+            model.setPlayerScore("X = " + playerScore + " poäng");
         } else {
-            activePlayer.setText("Player O wins!");
+            int computerScore = Integer.parseInt(model.getComputerScore().split(" ")[2]);
+            computerScore++;
+            model.setComputerScore("O = " + computerScore + " poäng");
         }
+
+        // Display the win message
+        displayWinMessage(winner);
+    }
+
+    private void displayWinMessage(String winner) {
+        outcomeLabel.setText(winner + " wins!");
+
 
     }
 
@@ -184,7 +163,7 @@ public class TicTacToeController {
         }
 
         if (isDraw) {
-            activePlayer.setText("It's a draw!");
+            outcomeLabel.setText("It's a draw!");
 
         }
     }
@@ -209,6 +188,7 @@ public class TicTacToeController {
     }
 
     private void clearBoardState() {
+        outcomeLabel.setText("");
         model.setFirst(model.getImageBlank());
         model.setSecond(model.getImageBlank());
         model.setThird(model.getImageBlank());
