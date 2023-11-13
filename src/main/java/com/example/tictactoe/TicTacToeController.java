@@ -42,7 +42,7 @@ public class TicTacToeController {
 
             weHaveAWinner = model.didSomebodyWin(this) != null;
             boolean isItADraw = isItADraw();
-            if (!weHaveAWinner && isItADraw) {
+            if (!weHaveAWinner && !isItADraw) {
                 computerPlayer();
                 weHaveAWinner = model.didSomebodyWin(this) != null;
                 isItADraw();
