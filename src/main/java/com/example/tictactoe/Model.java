@@ -39,8 +39,7 @@ public class Model {
 
     public Image[][] board;
 
-    public Model(Image imageX, Image imageO, Image imageBlank)
-    {
+    public Model(Image imageX, Image imageO, Image imageBlank) {
         this.imageX = imageX;
         this.imageO = imageO;
         this.imageBlank = imageBlank;
@@ -88,9 +87,7 @@ public class Model {
         return first.get();
     }
 
-    public ObjectProperty<Image> firstProperty() {
-        return first;
-    }
+    public ObjectProperty<Image> firstProperty() {return first;}
 
     public void setFirst(Image first) {
         this.first.set(first);
@@ -100,9 +97,7 @@ public class Model {
         return second.get();
     }
 
-    public ObjectProperty<Image> secondProperty() {
-        return second;
-    }
+    public ObjectProperty<Image> secondProperty() {return second;}
 
     public void setSecond(Image second) {
         this.second.set(second);
@@ -112,9 +107,7 @@ public class Model {
         return third.get();
     }
 
-    public ObjectProperty<Image> thirdProperty() {
-        return third;
-    }
+    public ObjectProperty<Image> thirdProperty() {return third;}
 
     public void setThird(Image third) {
         this.third.set(third);
@@ -124,21 +117,15 @@ public class Model {
         return fourth.get();
     }
 
-    public ObjectProperty<Image> fourthProperty() {
-        return fourth;
-    }
+    public ObjectProperty<Image> fourthProperty() {return fourth;}
 
     public void setFourth(Image fourth) {
         this.fourth.set(fourth);
     }
 
-    public Image getFifth() {
-        return fifth.get();
-    }
+    public Image getFifth() {return fifth.get();}
 
-    public ObjectProperty<Image> fifthProperty() {
-        return fifth;
-    }
+    public ObjectProperty<Image> fifthProperty() {return fifth;}
 
     public void setFifth(Image fifth) {
         this.fifth.set(fifth);
@@ -148,9 +135,7 @@ public class Model {
         return sixth.get();
     }
 
-    public ObjectProperty<Image> sixthProperty() {
-        return sixth;
-    }
+    public ObjectProperty<Image> sixthProperty() {return sixth;}
 
     public void setSixth(Image sixth) {
         this.sixth.set(sixth);
@@ -160,9 +145,7 @@ public class Model {
         return seventh.get();
     }
 
-    public ObjectProperty<Image> seventhProperty() {
-        return seventh;
-    }
+    public ObjectProperty<Image> seventhProperty() {return seventh;}
 
     public void setSeventh(Image seventh) {
         this.seventh.set(seventh);
@@ -172,9 +155,7 @@ public class Model {
         return eighth.get();
     }
 
-    public ObjectProperty<Image> eighthProperty() {
-        return eighth;
-    }
+    public ObjectProperty<Image> eighthProperty() {return eighth;}
 
     public void setEighth(Image eighth) {
         this.eighth.set(eighth);
@@ -184,9 +165,7 @@ public class Model {
         return ninth.get();
     }
 
-    public ObjectProperty<Image> ninthProperty() {
-        return ninth;
-    }
+    public ObjectProperty<Image> ninthProperty() {return ninth;}
 
     public void setNinth(Image ninth) {
         this.ninth.set(ninth);
@@ -197,9 +176,7 @@ public class Model {
         return playerScoreBoard.get();
     }
 
-    public StringProperty playerScoreBoardProperty() {
-        return playerScoreBoard;
-    }
+    public StringProperty playerScoreBoardProperty() {return playerScoreBoard;}
 
     public void setPlayerScoreBoard(String score) {
         this.playerScoreBoard.set(score);
@@ -209,9 +186,7 @@ public class Model {
         return computerScoreBoard.get();
     }
 
-    public StringProperty computerScoreBoardProperty() {
-        return computerScoreBoard;
-    }
+    public StringProperty computerScoreBoardProperty() {return computerScoreBoard;}
 
     public void setComputerScoreBoard(String score) {
         this.computerScoreBoard.set(score);
@@ -249,17 +224,11 @@ public class Model {
         return imageX;
     }
 
-    public void setImageX(Image imageX) {
-        this.imageX = imageX;
-    }
 
     public Image getImageO() {
         return imageO;
     }
 
-    public void setImageO(Image imageO) {
-        this.imageO = imageO;
-    }
 
     void clear() {
         legalMoves = new ArrayList<>(List.of("topLeft", "topCenter", "topRight",

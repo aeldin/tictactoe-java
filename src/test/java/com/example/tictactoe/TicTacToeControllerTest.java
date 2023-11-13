@@ -12,165 +12,43 @@ class TicTacToeControllerTest {
 
     @Test
     void didSomebodyWin() {
-
-        Model model = new Model(Mockito.mock(Image.class),Mockito.mock(Image.class),Mockito.mock(Image.class));
+        Model model = new Model(Mockito.mock(Image.class), Mockito.mock(Image.class), Mockito.mock(Image.class));
         model.clear();
 
+        assertWinner(model, "Player X", "topLeft", "topCenter", "topRight");
+        assertWinner(model, "Player X", "midLeft", "midCenter", "midRight");
+        assertWinner(model, "Player X", "bottomLeft", "bottomCenter", "bottomRight");
+        assertWinner(model, "Player X", "topLeft", "midLeft", "bottomLeft");
+        assertWinner(model, "Player X", "topCenter", "midCenter", "bottomCenter");
+        assertWinner(model, "Player X", "topRight", "midRight", "bottomRight");
+        assertWinner(model, "Player X", "topLeft", "midCenter", "bottomRight");
+        assertWinner(model, "Player X", "topRight", "midCenter", "bottomLeft");
 
-        model.updateBoardState("topLeft", model.getImageX());
-        model.updateBoardState("topCenter", model.getImageX());
-        model.updateBoardState("topRight", model.getImageX());
+        assertWinner(model, "Player O", "topLeft", "topCenter", "topRight");
+        assertWinner(model, "Player O", "midLeft", "midCenter", "midRight");
+        assertWinner(model, "Player O", "bottomLeft", "bottomCenter", "bottomRight");
+        assertWinner(model, "Player O", "topLeft", "midLeft", "bottomLeft");
+        assertWinner(model, "Player O", "topCenter", "midCenter", "bottomCenter");
+        assertWinner(model, "Player O", "topRight", "midRight", "bottomRight");
+        assertWinner(model, "Player O", "topLeft", "midCenter", "bottomRight");
+        assertWinner(model, "Player O", "topRight", "midCenter", "bottomLeft");
+    }
+
+    private void assertWinner(Model model, String player, String... moves) {
+        for (String move : moves) {
+            model.updateBoardState(move, player.equals("Player X") ? model.getImageX() : model.getImageO());
+        }
 
         String winner = model.checkForWinner();
-
         assertNotNull(winner);
-        assertEquals("Player X", winner);
+        assertEquals(player, winner);
 
         model.clear();
-
-        model.updateBoardState("midLeft", model.getImageX());
-        model.updateBoardState("midCenter", model.getImageX());
-        model.updateBoardState("midRight", model.getImageX());
-
-        assertNotNull(winner);
-        assertEquals("Player X", winner);
-
-        model.clear();
-
-        model.updateBoardState("bottomLeft", model.getImageX());
-        model.updateBoardState("bottomCenter", model.getImageX());
-        model.updateBoardState("bottomRight", model.getImageX());
-
-        assertNotNull(winner);
-        assertEquals("Player X", winner);
-
-        model.clear();
-
-        model.updateBoardState("topLeft", model.getImageX());
-        model.updateBoardState("midLeft", model.getImageX());
-        model.updateBoardState("bottomLeft", model.getImageX());
-
-        assertNotNull(winner);
-        assertEquals("Player X", winner);
-
-        model.clear();
-
-        model.updateBoardState("topCenter", model.getImageX());
-        model.updateBoardState("midCenter", model.getImageX());
-        model.updateBoardState("bottomCenter", model.getImageX());
-
-        assertNotNull(winner);
-        assertEquals("Player X", winner);
-
-        model.clear();
-
-        model.updateBoardState("topRight", model.getImageX());
-        model.updateBoardState("midRight", model.getImageX());
-        model.updateBoardState("bottomRight", model.getImageX());
-
-        assertNotNull(winner);
-        assertEquals("Player X", winner);
-
-        model.clear();
-
-        model.updateBoardState("topLeft", model.getImageX());
-        model.updateBoardState("midCenter", model.getImageX());
-        model.updateBoardState("bottomRight", model.getImageX());
-
-        assertNotNull(winner);
-        assertEquals("Player X", winner);
-
-        model.clear();
-
-        model.updateBoardState("topRight", model.getImageX());
-        model.updateBoardState("midCenter", model.getImageX());
-        model.updateBoardState("bottomLeft", model.getImageX());
-
-
-        assertNotNull(winner);
-        assertEquals("Player X", winner);
-
-
-
-
-
-        model.updateBoardState("topLeft", model.getImageO());
-        model.updateBoardState("topCenter", model.getImageO());
-        model.updateBoardState("topRight", model.getImageO());
-
-
-        assertNotNull(winner);
-        assertEquals("Player O", winner);
-
-        model.clear();
-
-        model.updateBoardState("midLeft", model.getImageO());
-        model.updateBoardState("midCenter", model.getImageO());
-        model.updateBoardState("midRight", model.getImageO());
-
-        assertNotNull(winner);
-        assertEquals("Player O", winner);
-
-        model.clear();
-
-        model.updateBoardState("bottomLeft", model.getImageO());
-        model.updateBoardState("bottomCenter", model.getImageO());
-        model.updateBoardState("bottomRight", model.getImageO());
-
-        assertNotNull(winner);
-        assertEquals("Player O", winner);
-
-        model.clear();
-
-        model.updateBoardState("topLeft", model.getImageO());
-        model.updateBoardState("midLeft", model.getImageO());
-        model.updateBoardState("bottomLeft", model.getImageO());
-
-        assertNotNull(winner);
-        assertEquals("Player O", winner);
-
-        model.clear();
-
-        model.updateBoardState("topCenter", model.getImageO());
-        model.updateBoardState("midCenter", model.getImageO());
-        model.updateBoardState("bottomCenter", model.getImageO());
-
-        assertNotNull(winner);
-        assertEquals("Player O", winner);
-
-        model.clear();
-
-        model.updateBoardState("topRight", model.getImageO());
-        model.updateBoardState("midRight", model.getImageO());
-        model.updateBoardState("bottomRight", model.getImageO());
-
-        assertNotNull(winner);
-        assertEquals("Player O", winner);
-
-        model.clear();
-
-        model.updateBoardState("topLeft", model.getImageO());
-        model.updateBoardState("midCenter", model.getImageO());
-        model.updateBoardState("bottomRight", model.getImageO());
-
-        assertNotNull(winner);
-        assertEquals("Player O", winner);
-
-        model.clear();
-
-        model.updateBoardState("topRight", model.getImageO());
-        model.updateBoardState("midCenter", model.getImageO());
-        model.updateBoardState("bottomLeft", model.getImageO());
-
-
-        assertNotNull(winner);
-        assertEquals("Player O", winner);
-
     }
 
     @Test
     void isItADraw() {
-        Model model = new Model(Mockito.mock(Image.class),Mockito.mock(Image.class),Mockito.mock(Image.class));
+        Model model = new Model(Mockito.mock(Image.class), Mockito.mock(Image.class), Mockito.mock(Image.class));
         model.clear();
 
         model.updateBoardState("topLeft", model.getImageX());
@@ -191,15 +69,15 @@ class TicTacToeControllerTest {
         Model model = new Model(Mockito.mock(Image.class), Mockito.mock(Image.class), Mockito.mock(Image.class));
         model.clear();
 
-        // Test updating a blank cell with Player X image
         assertTrue(model.updateBoardState("topLeft", model.getImageX()));
         assertEquals(model.getImageX(), model.getFirst());
+        model.legalMoves.remove("topLeft");
 
-        // Test updating a non-blank cell, which should return false
-        assertTrue(model.updateBoardState("topLeft", model.getImageO()));
-        assertEquals(model.getImageO(), model.getFirst()); // Check that the cell remains unchanged
 
-        // Test updating another cell with Player O image
+        assertFalse(model.updateBoardState("topLeft", model.getImageO()));
+        assertEquals(model.getImageX(), model.getFirst());
+
+
         assertTrue(model.updateBoardState("midCenter", model.getImageO()));
         assertEquals(model.getImageO(), model.getFifth());
 

@@ -6,56 +6,60 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tictactoe.TicTacToeController">
+<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.tictactoe.TicTacToeController">
     <VBox alignment="BOTTOM_CENTER" spacing="10.0">
-        <Label text="Tic-Tac-Toe" >
-         <font>
-            <Font name="JetBrains Mono ExtraBold Italic" size="74.0" />
-         </font>
-         <textFill>
-            <LinearGradient endY="0.8388625592417062" startY="0.36492890995260663">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.6052631735801697" green="0.2297758311033249" blue="0.2297758311033249" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill></Label>
+        <Label text="Tic-Tac-Toe">
+            <font>
+                <Font name="JetBrains Mono ExtraBold Italic" size="74.0"/>
+            </font>
+            <textFill>
+                <LinearGradient endY="0.8388625592417062" startY="0.36492890995260663">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color/>
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.6052631735801697" green="0.2297758311033249" blue="0.2297758311033249"/>
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </textFill>
+        </Label>
         <Label fx:id="outcomeLabel"/>
         <Label text="${controller.model.playerScoreBoard}">
-         <font>
-            <Font name="JetBrains Mono ExtraBold Italic" size="24.0" />
-         </font></Label>
+            <font>
+                <Font name="JetBrains Mono ExtraBold Italic" size="24.0"/>
+            </font>
+        </Label>
         <Label text="${controller.model.computerScoreBoard}">
-         <font>
-            <Font name="JetBrains Mono ExtraBold Italic" size="24.0" />
-         </font></Label>
+            <font>
+                <Font name="JetBrains Mono ExtraBold Italic" size="24.0"/>
+            </font>
+        </Label>
     </VBox>
     <HBox alignment="BOTTOM_CENTER" spacing="10.0">
-    <ImageView id="topLeft" image="${controller.model.first}" onMouseClicked="#imageBlankClicked" />
-    <ImageView id="topCenter" image="${controller.model.second}" onMouseClicked="#imageBlankClicked" />
-    <ImageView id="topRight" image="${controller.model.third}" onMouseClicked="#imageBlankClicked" />
+        <ImageView id="topLeft" image="${controller.model.first}" onMouseClicked="#imageBlankClicked"/>
+        <ImageView id="topCenter" image="${controller.model.second}" onMouseClicked="#imageBlankClicked"/>
+        <ImageView id="topRight" image="${controller.model.third}" onMouseClicked="#imageBlankClicked"/>
     </HBox>
     <HBox alignment="BOTTOM_CENTER" spacing="10.0">
-        <ImageView id="midLeft" image="${controller.model.fourth}" onMouseClicked="#imageBlankClicked" />
-        <ImageView id="midCenter" image="${controller.model.fifth}" onMouseClicked="#imageBlankClicked" />
-        <ImageView id="midRight" image="${controller.model.sixth}" onMouseClicked="#imageBlankClicked" />
+        <ImageView id="midLeft" image="${controller.model.fourth}" onMouseClicked="#imageBlankClicked"/>
+        <ImageView id="midCenter" image="${controller.model.fifth}" onMouseClicked="#imageBlankClicked"/>
+        <ImageView id="midRight" image="${controller.model.sixth}" onMouseClicked="#imageBlankClicked"/>
     </HBox>
     <HBox alignment="BOTTOM_CENTER" spacing="10.0">
-        <ImageView id="bottomLeft" image="${controller.model.seventh}" onMouseClicked="#imageBlankClicked" />
-        <ImageView id="bottomCenter" image="${controller.model.eighth}" onMouseClicked="#imageBlankClicked" />
-        <ImageView id="bottomRight" image="${controller.model.ninth}" onMouseClicked="#imageBlankClicked" />
+        <ImageView id="bottomLeft" image="${controller.model.seventh}" onMouseClicked="#imageBlankClicked"/>
+        <ImageView id="bottomCenter" image="${controller.model.eighth}" onMouseClicked="#imageBlankClicked"/>
+        <ImageView id="bottomRight" image="${controller.model.ninth}" onMouseClicked="#imageBlankClicked"/>
     </HBox>
     <HBox alignment="BOTTOM_CENTER">
-         <Button fx:id="nextGameButton" mnemonicParsing="false" onAction="#nextButtonClicked" text="Next" />
-         <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetButtonClicked" text="Reset" />
-      </HBox>
+        <Button fx:id="nextGameButton" mnemonicParsing="false" onAction="#nextButtonClicked" text="Next"/>
+        <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetButtonClicked" text="Reset"/>
+    </HBox>
 
 </VBox>
